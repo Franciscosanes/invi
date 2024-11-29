@@ -1,0 +1,689 @@
+/* Estilo global */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #000; /* Fondo negro */
+    color: #ffffff; /* Texto blanco */
+    text-align: center;
+}
+
+/* Botón para reproducir canción */
+.play-button-container {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.play-button {
+    background-color: #f0a500; /* Fondo amarillo */
+    color: #1d1d1f; /* Texto oscuro */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.play-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 10px rgba(240, 165, 0, 0.8);
+}
+
+.play-button:active {
+    transform: translateY(2px);
+    box-shadow: 0px 2px 5px rgba(240, 165, 0, 0.5);
+}
+
+/* Imagen de fondo */
+.overlay {
+    background: url('cr7.jpg') no-repeat center center; /* Imagen de fondo */
+    background-size: contain; /* Ajustar para no distorsionar */
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+}
+
+/* Barra amarilla */
+.bar {
+    width: 50px;
+    height: 5px;
+    background-color: #f0a500; /* Color amarillo */
+    margin: 10px auto;
+    animation: expandBar 1.5s ease-in-out forwards;
+}
+
+/* Animación para la barra amarilla */
+@keyframes expandBar {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 50px;
+    }
+}
+
+/* Títulos */
+h1 {
+    font-size: 3rem;
+    margin: 10px 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #f0a500; /* Color amarillo */
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Cita */
+blockquote {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    font-style: italic;
+    line-height: 1.5;
+    color: #e0e0e0;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Animación de entrada para textos */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Espaciador */
+.spacer {
+    height: 150px;
+}
+
+/* Estilo para el contenedor oculto */
+.countdown-container.hidden {
+    display: none; /* Ocultar cuando tenga la clase hidden */
+}
+
+/* Estilo para el contenedor visible */
+.countdown-container {
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo negro con transparencia */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(240, 165, 0, 0.8), 0px 0px 15px rgba(255, 255, 255, 0.3);
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    color: #ffffff; /* Texto blanco */
+    margin: 50px auto; /* Centrado vertical y horizontal */
+    opacity: 0; /* Oculto inicialmente */
+    transform: translateY(50px); /* Desplazado hacia abajo inicialmente */
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+/* Estilo para el contenedor oculto */
+.countdown-container.hidden {
+    display: none;
+}
+
+/* Estilo para el contenedor visible */
+.countdown-container.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0); /* En su posición original */
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+/* Elementos internos del recuadro */
+.countdown-container h2 {
+    font-size: 1.8rem; /* Tamaño del título */
+    margin-bottom: 10px;
+    color: #f0a500; /* Color amarillo */
+}
+
+.countdown {
+    display: flex; /* Distribuir elementos en fila */
+    justify-content: space-around; /* Espaciado uniforme */
+    margin-top: 10px;
+}
+
+.countdown div {
+    text-align: center; /* Centrar texto */
+}
+
+.countdown span {
+    display: block; /* Mostrar en bloque */
+    font-size: 2rem; /* Tamaño grande para los números */
+    font-weight: 700; /* Texto en negrita */
+    margin-bottom: 5px;
+    color: #ffffff; /* Texto blanco */
+}
+
+.countdown p {
+    margin: 0;
+    font-size: 1rem; /* Tamaño normal para las etiquetas */
+    font-weight: 500; /* Peso medio */
+    color: #d9d9d9; /* Gris claro */
+}
+
+/* Contenedor de la ceremonia */
+.ceremony-container {
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo negro con transparencia */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(240, 165, 0, 0.8), 0px 0px 15px rgba(255, 255, 255, 0.3);
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    color: #ffffff;
+    margin: 50px auto;
+}
+
+/* Apartado de confirmación de asistencia */
+.confirmation-container {
+    background-color: #c2c1c0; /* Fondo crema claro */
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    display: none; /* Oculto por defecto */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.confirmation-container.hidden {
+    display: none; /* Oculto hasta que se active */
+}
+
+.confirmation-container h3 {
+    font-size: 1.5rem;
+    color: #f0a500; /* Color amarillo */
+    margin-bottom: 10px;
+}
+
+.options label {
+    display: block;
+    font-size: 1rem;
+    color: #1d1d1f;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.options input[type="radio"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-button {
+    background-color: #f0a500;
+    color: #1d1d1f;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.confirmation-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 10px rgba(240, 165, 0, 0.8);
+}
+
+.confirmation-button:active {
+    transform: translateY(2px);
+    box-shadow: 0px 2px 5px rgba(240, 165, 0, 0.5);
+}
+
+/* Botones generales */
+.ceremony-button {
+    background-color: #f0a500; /* Fondo amarillo */
+    color: #1d1d1f; /* Texto negro */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ceremony-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 10px rgba(240, 165, 0, 0.8);
+}
+
+.ceremony-button:active {
+    transform: translateY(2px);
+    box-shadow: 0px 2px 5px rgba(240, 165, 0, 0.5);
+}
+
+/* Apartado de confirmación de asistencia */
+.confirmation-container {
+    background-color: #fcf8e8; /* Fondo crema claro */
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    display: none; /* Oculto por defecto */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.confirmation-container.hidden {
+    display: none;
+}
+
+.confirmation-container h3 {
+    font-size: 1.5rem;
+    color: #f0a500; /* Color amarillo */
+    margin-bottom: 10px;
+}
+
+.options label {
+    display: block;
+    font-size: 1rem;
+    color: #1d1d1f;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.options input[type="radio"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-button {
+    background-color: #f0a500;
+    color: #1d1d1f;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.confirmation-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 10px rgba(240, 165, 0, 0.8);
+}
+
+.confirmation-button:active {
+    transform: translateY(2px);
+    box-shadow: 0px 2px 5px rgba(240, 165, 0, 0.5);
+}
+
+
+/* Botón estilizado con colores oscuros */
+.styled-button {
+    background-color: #333333; /* Gris oscuro */
+    color: #ffffff; /* Blanco */
+    border: 2px solid #555555; /* Gris intermedio */
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .styled-button:hover {
+    background-color: #555555; /* Gris más claro */
+    border-color: #777777;
+  }
+  
+  /* Galería oculta */
+/* Estilo general del contenedor */
+.image-gallery-container {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(240, 165, 0, 0.8), 0px 0px 15px rgba(255, 255, 255, 0.3);
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.image-gallery-container h2 {
+    font-size: 2rem;
+    color: #f0a500;
+    margin-bottom: 10px;
+}
+
+.image-gallery-container p {
+    font-style: italic;
+    color: #f5f5f7;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-wrapper img:hover {
+    transform: scale(1.05);
+}
+/* Estilos para el modal */
+#image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro con opacidad */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s;
+}
+
+#image-modal img {
+    max-width: 90%;
+    max-height: 90%;
+    display: block;
+    border-radius: 10px;
+}
+
+#image-modal:not(.hidden) {
+    visibility: visible;
+    opacity: 1;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: #ffffff;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* Ocultar galería de imágenes */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.image-gallery.hidden {
+    display: none;
+}
+
+/* Estilo para imágenes más pequeñas */
+/* Hacer la tercera imagen más pequeña */
+.image-wrapper.small-image img {
+    width: 50%; /* Reducir el ancho al 50% del contenedor */
+    max-width: 300px; /* Tamaño máximo aún más reducido */
+    height: auto; /* Mantener proporciones */
+    margin: auto;
+    border: 2px solid #f0a500; /* Opcional: añadir un borde amarillo */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
+}
+
+/* Botones Ver más y Ocultar */
+.button-container .btn {
+    background-color: #f0a500; /* Fondo amarillo */
+    color: #1d1d1f; /* Texto negro */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button-container .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 10px rgba(240, 165, 0, 0.8);
+}
+
+.button-container .btn:active {
+    transform: translateY(2px);
+    box-shadow: 0px 2px 5px rgba(240, 165, 0, 0.5);
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* Reducir el tamaño de las imágenes adicionales */
+.image-gallery .image-wrapper.hidden img {
+    width: 70%; /* Reducir el tamaño al 70% */
+    max-width: 300px; /* Limitar el tamaño máximo */
+    height: auto; /* Mantener proporciones */
+    margin: auto;
+    border-radius: 10px; /* Opcional: bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
+}
+
+/* Una vez que se muestran, mantenerlas pequeñas */
+.image-gallery .image-wrapper img {
+    width: 100%; /* Valor estándar para otras imágenes */
+    max-width: 600px; /* Máximo tamaño permitido para las dos primeras */
+    height: auto; /* Mantener proporción */
+}
+
+.image-gallery .image-wrapper img:hover {
+    transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Contenedor personalizado */
+.custom-container {
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo negro con transparencia */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(240, 165, 0, 0.8), 0px 0px 15px rgba(255, 255, 255, 0.3);
+    max-width: 600px;
+    margin: 50px auto; /* Centrado vertical y horizontal */
+    text-align: center;
+    color: #ffffff; /* Texto blanco */
+}
+
+/* Título del contenedor */
+.custom-title {
+    font-size: 2rem;
+    color: #f0a500; /* Color amarillo */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Descripción del contenedor */
+.custom-description {
+    font-size: 1.2rem;
+    color: #f5f5f7; /* Texto blanco suave */
+    margin-bottom: 20px;
+    font-style: italic;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Botón personalizado */
+.custom-button {
+    background-color: #f0a500; /* Fondo amarillo */
+    color: #1d1d1f; /* Texto oscuro */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Efecto hover para el botón */
+.custom-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 10px rgba(240, 165, 0, 0.8);
+}
+
+.custom-button:active {
+    transform: translateY(2px);
+    box-shadow: 0px 2px 5px rgba(240, 165, 0, 0.5);
+}
+
+/* Estilo para la imagen en el contenedor "Música" */
+.custom-image {
+    display: block;
+    margin: 0 auto 20px; /* Centrar la imagen y añadir espacio inferior */
+    width: 60%; /* Ajusta el ancho al 60% del contenedor */
+    border-radius: 15px; /* Bordes redondeados */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efectos al pasar el ratón */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra inicial */
+}
+
+/* Efectos al pasar el ratón sobre la imagen */
+.custom-image:hover {
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5); /* Intensificar la sombra */
+}
+
+/* Contenedor del formulario */
+.song-form {
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo negro con transparencia */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(240, 165, 0, 0.8), 0px 0px 15px rgba(255, 255, 255, 0.3);
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    color: #ffffff; /* Texto blanco */
+    margin: 20px auto; /* Centrado */
+    display: none; /* Oculto inicialmente */
+    transform: translateY(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Clase para mostrar el formulario */
+/* Estilo para el contenedor del formulario */
+/* Clase para ocultar el formulario */
+/* Estilo para ocultar el formulario */
+.song-form.hidden {
+    display: none;
+}
+
+/* Mostrar el formulario cuando no tiene la clase "hidden" */
+.song-form {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(240, 165, 0, 0.8), 0px 0px 15px rgba(255, 255, 255, 0.3);
+    max-width: 600px;
+    text-align: center;
+    color: #ffffff;
+    margin: 50px auto;
+}
+
+/* Estilo de los campos de entrada */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+/* Botón de confirmación */
+.confirmation-button {
+    background-color: #f0a500;
+    color: #1d1d1f;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.confirmation-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 10px rgba(240, 165, 0, 0.8);
+}
+
+
+/* Estilo para la sección final */
+.final-section {
+    text-align: center;
+    background-color: #f5ede4; /* Fondo claro */
+    padding: 30px 20px;
+    border-top: 5px solid #d1bfa7; /* Línea superior */
+}
+
+/* Mensaje final */
+.final-message h2 {
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    color: #1d1d1f;
+    margin: 0;
+}
+
+.final-message p {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem;
+    color: #a57f60;
+    margin-top: 10px;
+}
+
+.image-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.motivational-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Bordes redondeados opcionales */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
+}

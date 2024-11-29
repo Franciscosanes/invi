@@ -1,0 +1,61 @@
+/* Configuración general del cuerpo */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #0f0f1f; /* Fondo azul oscuro extraído de la imagen */
+    color: #ffffff; /* Color de texto predeterminado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa toda la pantalla */
+    text-align: center;
+}
+
+/* Contenedor principal */
+.main-container {
+    display: flex;
+    flex-direction: column; /* Alinea elementos verticalmente */
+    align-items: center; /* Centra elementos horizontalmente */
+    gap: 10px; /* Espacio entre los elementos */
+    padding: 20px;
+    background-color: #0f0f1f; /* Misma tonalidad que el fondo */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Imagen responsiva */
+.responsive-image {
+    max-width: 30%; /* Reduce el tamaño de la imagen al 30% */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Sombra suave */
+}
+
+/* Título */
+.main-container h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+/* Párrafo */
+.main-container p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* Botón */
+.main-button {
+    background-color: #444444;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.main-button:hover {
+    background-color: #555555;
+    transform: translateY(-2px);
+}
